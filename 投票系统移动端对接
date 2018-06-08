@@ -1,5 +1,8 @@
-1.通过公钥获取帐户列表
+.通过公钥获取帐户列表
 cleos get  accounts EOS5c2fvwkzAcBK57irykyeGd8cuhag43U77peqYzMU71JKvmf91R
+
+0.列出参与投票的节点
+cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/   system  listproducers
 
 投票
 1.投票前需要将自己注册到投票系统
