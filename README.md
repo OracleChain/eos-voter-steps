@@ -6,7 +6,7 @@ Private key: 5JpUtwUapGnqCWnuhQubwj9iJ1duJtQNaBWfo3FjRCE3jvfCc5w
 Public key: EOS5c2fvwkzAcBK57irykyeGd8cuhag43U77peqYzMU71JKvmf91R
 
 
-步骤一
+预创建账户:
 cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/ create account eosio  eosio.bpay     EOS89AcJYCj1P7KYnx756eT7vbnrEqucGkLijaPUEkc3Jn2krpsBJ EOS5c2fvwkzAcBK57irykyeGd8cuhag43U77peqYzMU71JKvmf91R
 cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/ create account eosio  eosio.msig     EOS89AcJYCj1P7KYnx756eT7vbnrEqucGkLijaPUEkc3Jn2krpsBJ EOS5c2fvwkzAcBK57irykyeGd8cuhag43U77peqYzMU71JKvmf91R
 cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/ create account eosio  eosio.names     EOS89AcJYCj1P7KYnx756eT7vbnrEqucGkLijaPUEkc3Jn2krpsBJ EOS5c2fvwkzAcBK57irykyeGd8cuhag43U77peqYzMU71JKvmf91R
@@ -65,7 +65,7 @@ cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/  system  vot
 
 cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/   system delegatebw aaaaaavotera aaaaaavotera "10 SYS" "10 SYS"
 
-
+cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/   system  listproducers
 
 
  grep -R --include=*.{hpp,cpp,h} "staked =" ./

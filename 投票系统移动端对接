@@ -1,0 +1,20 @@
+1.通过公钥获取帐户列表
+cleos get  accounts EOS5c2fvwkzAcBK57irykyeGd8cuhag43U77peqYzMU71JKvmf91R
+
+投票
+1.投票前需要将自己注册到投票系统
+cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/ system regproxy 账户名
+
+2.将待投票的生产节点加入自己的投票准许列表
+cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/  system voteproducer approve 投票人账户 被投票账户
+
+3.押入SYS用于投票
+用户押的总个数={个数a}+{个数b}，建议五五分，个数一样
+cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/   system delegatebw 投票人账户 投票人账户 "{个数a} SYS" "{个数b} SYS"
+
+4.投票给n个节点
+cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/  system  voteproducer prods 投票人账户 producera producerb ...
+
+5.取出押入的20个SYS(需要当前正参与投票数量占全网15%以上的SYS才能取出来)
+cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/   system undelegatebw 投票人账户 投票人账户 "10.0000 SYS" "10.0000 SYS"
+
