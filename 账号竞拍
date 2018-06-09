@@ -1,0 +1,6 @@
+cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/ system newaccount eosio waitfo EOS89AcJYCj1P7KYnx756eT7vbnrEqucGkLijaPUEkc3Jn2krpsBJ EOS5c2fvwkzAcBK57irykyeGd8cuhag43U77peqYzMU71JKvmf91R --stake-net "10 SYS" --stake-cpu "10 SYS" --buy-ram "10 SYS" -p eosio
+
+cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/  system bidname waitfo xxx "1.0000 SYS"
+
+
+cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/ push action eosio.token issue '[ "xxx" "100.0000 SYS" "memo" ]' -p eosio 

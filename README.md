@@ -42,17 +42,26 @@ cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/ push action 
 cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/ push action eosio.token issue [ "votera" "1000000.0000 EOS" "memo" ] -p eosio
 
 cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/ push action eosio.token issue '[ "aaaaaavotera" "1000000.0000 SYS" "memo" ]' -p eosio
-cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/ push action eosio.token issue [ "aaaaaavotera" "1000000.0000 EOS" "memo" ] -p eosio
+cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/ push action eosio.token issue '[ "aaaaaavoterb" "1000000.0000 SYS" "memo" ]' -p eosio
+
 
 cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/ system regproducer producera EOS5c2fvwkzAcBK57irykyeGd8cuhag43U77peqYzMU71JKvmf91R
 
-cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/  system voteproducer approve aaaaaavotera producera
+cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/ system regproducer producerb EOS5c2fvwkzAcBK57irykyeGd8cuhag43U77peqYzMU71JKvmf91R
+
+cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/  system voteproducer approve aaaaaavotera producerb
+cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/  system voteproducer approve aaaaaavoterb producerb
 
 cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/  system buyram eosio votera "100 SYS"
 
  cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/   system newaccount eosio producera EOS89AcJYCj1P7KYnx756eT7vbnrEqucGkLijaPUEkc3Jn2krpsBJ EOS5c2fvwkzAcBK57irykyeGd8cuhag43U77peqYzMU71JKvmf91R --stake-net "10 SYS" --stake-cpu "10 SYS" --buy-ram "10 SYS"  -p eosio
 
+ cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/   system newaccount eosio producerb EOS89AcJYCj1P7KYnx756eT7vbnrEqucGkLijaPUEkc3Jn2krpsBJ EOS5c2fvwkzAcBK57irykyeGd8cuhag43U77peqYzMU71JKvmf91R --stake-net "10 SYS" --stake-cpu "10 SYS" --buy-ram "10 SYS"  -p eosio
+
  cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/   system newaccount eosio aaaaaavotera EOS89AcJYCj1P7KYnx756eT7vbnrEqucGkLijaPUEkc3Jn2krpsBJ EOS5c2fvwkzAcBK57irykyeGd8cuhag43U77peqYzMU71JKvmf91R --stake-net "10 SYS" --stake-cpu "10 SYS" --buy-ram "10 SYS"  -p eosio
+
+
+ cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/   system newaccount eosio aaaaaavoterb EOS89AcJYCj1P7KYnx756eT7vbnrEqucGkLijaPUEkc3Jn2krpsBJ EOS5c2fvwkzAcBK57irykyeGd8cuhag43U77peqYzMU71JKvmf91R --stake-net "10 SYS" --stake-cpu "10 SYS" --buy-ram "10 SYS"  -p eosio
 
 
  cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/    system regproxy aaaaaavotera
@@ -61,9 +70,16 @@ cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/  system buyr
 
 cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/  get table eosio eosio  voters 
 
-cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/  system  voteproducer prods aaaaaavotera producera
+cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/  system  voteproducer prods aaaaaavotera producera producerb
+cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/  system  voteproducer prods aaaaaavoterb producera producerb
 
-cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/   system delegatebw aaaaaavotera aaaaaavotera "10 SYS" "10 SYS"
+cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/  system voteproducer approve aaaaaavotera producera
+cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/  system voteproducer unapprove aaaaaavotera producerb
+
+cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/   system delegatebw aaaaaavotera aaaaaavotera "100 SYS" "100 SYS"
+cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/   system delegatebw aaaaaavoterb aaaaaavoterb "10 SYS" "10 SYS"
+
+cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/   system undelegatebw aaaaaavotera aaaaaavotera "10.0000 SYS" "10.0000 SYS"
 
 cleos -u http://127.0.0.1:8888/ --wallet-url http://127.0.0.1:8890/   system  listproducers
 
